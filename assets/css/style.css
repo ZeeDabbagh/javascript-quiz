@@ -1,0 +1,15 @@
+:root {
+    --purple: #791f87;
+}
+
+.custom-btn {
+    background-color: var(--purple);
+    color: white;
+    
+}
+
+.timer {
+    position: absolute; 
+    top: 0px; 
+    right: 10px;
+}
