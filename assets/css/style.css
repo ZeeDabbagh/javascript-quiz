@@ -1,11 +1,142 @@
+* {
+    box-sizing: border-box;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+}
+
 :root {
+    --purple: #791f87;
+    --light-purple: #CF9FFF;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+#assessment {
+    color: lightslategray;
+    font-style: italic;
+}
+
+.container {
+    width: 800px;
+    max-width: 80%;
+    padding: 50px;
+
+}
+
+#hide {
+    display: none;
+}
+
+#answer-container {
+    display: grid;
+    gap: 10px;
+    margin: 20px 5px;
+}
+
+.answer-btn {
+    text-align: left;
+    width: max-content;
+}
+
+.btn {
+    background-color: var(--purple);
+    color: white;
+    outline: none;
+    border-radius: 5px;
+    padding: 5px;
+    width: 20%;
+}
+
+.btn:hover {
+    background-color: var(--light-purple);
+}
+
+.start-btn {
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 10px 20px;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.welcome-msg {
+    text-align: center;
+}
+
+.hide {
+    display: none;
+}
+.timer {
+    position: absolute; 
+    top: 0px; 
+    right: 10px;
+}
+
+.highscore {
+    position: absolute; 
+    top: 0px; 
+    left: 10px;
+}
+
+.highscore a {
+    text-decoration: none;
+    color: var(--purple);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* :root {
     --purple: #791f87;
 }
 
 .custom-btn {
     background-color: var(--purple);
     color: white;
-    
 }
 
 .timer {
@@ -13,3 +144,7 @@
     top: 0px; 
     right: 10px;
 }
+
+.hide {
+    display: none;
+} */
