@@ -12,19 +12,20 @@ var timeEl = document.querySelector('.timer')
 var welcomePage = document.querySelector('.start-pg')
 var questionContainerEl = document.getElementById('question-container')
 var questionEl = document.getElementById('question')
-var answerBtnEl = document.querySelector('answer-btn')
+var answerBtnEl = document.querySelector('.answer-btn')
 var containerEl = document.querySelector('.container')
 var answerContainerEl = document.getElementById('answer-container')
 var assessmentEl = document.querySelector('.assessment')
+var timeLeft = 75
+var score = 0
 
-let shuffledQs, currentQIndex
+let currentQIndex
 
 startBtn.addEventListener('click', startQuiz)
-btnNew.addEventListener('click', queQ)
+answerContainerEl.addEventListener('click', selectA)
 
   function startQuiz () {
   welcomePage.classList.add('hide')
-  shuffledQs = questions.sort(() => Math.random() -.5)
   currentQIndex = 0
   questionContainerEl.classList.remove('hide')
   startTimer()
@@ -33,29 +34,33 @@ btnNew.addEventListener('click', queQ)
 }
 
 function queQ() {
-  resetAs() 
-  showQs(shuffledQs[currentQIndex])
+  // resetAs() 
+  showQs(questions[currentQIndex])
 }
 
 function showQs (question) {
   questionEl.innerText = question.question;
-  question.answers.forEach(answer => {
-    var btnNew = document.createElement('button')
-    btnNew.innerText = answer.text
-    btnNew.classList.add('btn')
-    answerContainerEl.appendChild(btnNew);
+  // question.answers.forEach(answer => {
+  // answerBtnEl.innerText = answer.text
+
+    answerContainerEl.innerHTML=''
+    question.answers.forEach((answer, i) => {
+      var btnNew = document.createElement('button')
+      btnNew.innerText = answer.text
+      btnNew.classList.add('btn')
+      btnNew.classList.add('answer-btn')
+      btnNew.classList.add('answer-btn-'+i)
+      answerContainerEl.appendChild(btnNew)
   })
 }
 
 function resetAs() {
-  while (answerContainerEl.firstChild) {
-    answerContainerEl.removeChild(answerContainerEl.firstChild)
-  }
+  selectA()
+  queQ()
 }  
 
 function startTimer() {
-    var timeLeft = 70;
-  
+
     var timeInterval = setInterval(function () {
       if (timeLeft > 0) {
         timeEl.textContent = "Time left: " + timeLeft;
@@ -75,26 +80,38 @@ function startTimer() {
 
 function selectA(event) {
   var selectedA = event.target
-  if (selectedA.correct) {
-    score++
-    queQ();
-    assessmentEl.classList.remove('hide')
-    assessmentEl.appendChild('<hr>')
-    assessmentEl.appendChild('Correct!')
-  } else {
-    timeLeft-5
-    queQ();
-    assessmentEl.classList.remove('hide')
-    assessmentEl.appendChild('<hr>')
-    assessmentEl.appendChild('Correct!')
+  if (selectedA.matches (".answer-btn")) {
+    var answerClass = selectedA.classList[2]
+    // console.log(selectedA.classList)
+    answerClass = answerClass.split('-')
+    // console.log(answerClass)
+    var chosenIndex = answerClass[2]
+    // chosen = parseInt(chosen)
+    // var answers = questions[currentQIndex].answers
+    // console.log(answers[chosen])
+    var isCorrect = questions[currentQIndex].answers[chosenIndex].correct
+  
+    currentQIndex++;
+    if(currentQIndex>=questions.length) {
+      alert("No more questions!")
+      return;
+    }
+    if (isCorrect) {
+      score++
+      queQ();
+      assessmentEl.classList.remove('hide')
+      // assessmentEl.appendChild('<hr>')
+      // assessmentEl.appendChild('Correct!')
+    } else {
+      timeLeft=timeLeft-5
+      queQ();
+      assessmentEl.classList.remove('hide')
+      // assessmentEl.appendChild('<hr>')
+      // assessmentEl.appendChild('Correct!')
+    
+    }
   }
-  if (shuffledQuestions.length > currentQuestionIndex + 1) {
-    var scorePage = document.createElement('h2')
-    timeEl.classList.add('hide')
-    containerEl.classList.add('hide')
-    document.body.appendChild('scorePage')
-  }
-}
+} // selectA
 
 var questions = [
   {
