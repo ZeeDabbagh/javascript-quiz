@@ -26,7 +26,7 @@ When all questions are answered or the timer reaches 0 the game will be over and
 Please refer to the LICENSE in the repo.
 ```
 ## Screenshot
-<!-- ![deployedSS](./assets/images/DeployedSS.png) -->
+![deployedSS](./assets/image/deployedSS.png)
 ## Link to Deployed Web App
 https://zeedabbagh.github.io/javascript-quiz/
 
