@@ -28,5 +28,5 @@ Please refer to the LICENSE in the repo.
 ## Screenshot
 <!-- ![deployedSS](./assets/images/DeployedSS.png) -->
 ## Link to Deployed Web App
-
+https://zeedabbagh.github.io/javascript-quiz/
 
