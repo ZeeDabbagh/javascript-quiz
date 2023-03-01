@@ -94,7 +94,15 @@ body {
     color: var(--purple);
 }
 
+#form {
+    display: inline;
+}
 
+.highscores-page button{
+    width: 800px;
+    max-width: 80%;
+    padding: 50px;
+}
 
 
 

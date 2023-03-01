@@ -18,6 +18,10 @@ var answerContainerEl = document.getElementById('answer-container')
 var assessmentEl = document.querySelector('.assessment')
 var timeLeft = 75
 var score = 0
+var assessmentP = document.getElementById('assessment')
+var scoresPg = document.getElementById('scores-pg')
+var submitBtn = document.getElementById('submit-btn')
+var highScorePg = document.querySelector('.highscore-page')
 
 let currentQIndex
 
@@ -79,39 +83,63 @@ function startTimer() {
 
 
 function selectA(event) {
+
   var selectedA = event.target
   if (selectedA.matches (".answer-btn")) {
     var answerClass = selectedA.classList[2]
-    // console.log(selectedA.classList)
     answerClass = answerClass.split('-')
-    // console.log(answerClass)
     var chosenIndex = answerClass[2]
-    // chosen = parseInt(chosen)
-    // var answers = questions[currentQIndex].answers
-    // console.log(answers[chosen])
-    var isCorrect = questions[currentQIndex].answers[chosenIndex].correct
+
+    var isCorrect = questions[currentQIndex].answers[chosenIndex].correct;
   
     currentQIndex++;
     if(currentQIndex>=questions.length) {
-      alert("No more questions!")
+      // alert('all done')
+      questionContainerEl.classList.add('hide');
+      scoresPg.classList.remove('hide');
+      timeEl.classList.add('hide');
+
       return;
     }
+    
     if (isCorrect) {
-      score++
+      score + 25
       queQ();
       assessmentEl.classList.remove('hide')
-      // assessmentEl.appendChild('<hr>')
-      // assessmentEl.appendChild('Correct!')
+      assessmentP.innerText = 'Correct!'
+      
+
     } else {
-      timeLeft=timeLeft-5
+      timeLeft=timeLeft-10
       queQ();
       assessmentEl.classList.remove('hide')
-      // assessmentEl.appendChild('<hr>')
-      // assessmentEl.appendChild('Correct!')
+      assessmentP.innerText = 'Wrong!'
     
     }
   }
-} // selectA
+  
+} 
+
+// function storeData() {
+//   window.location.replace("highscore.html")
+//   if (localStorage.getItem("data") === null) {
+//     var data = [];
+//     localStorage.setItem("data", JSON.stringify(data));
+//   }
+//   var userInit = document.getElementById('form-input');
+//   if (userInit !== "") {
+//   data = JSON.parse(localStorage.getItem("data"));
+//   var newPlayer = userInit.value + "-" + score;
+//   data.push(newPlayer);
+//   localStorage.setItem("data", JSON.stringify(data));
+  
+  
+//   };
+// } 
+
+// submitBtn.addEventListener('click', storeData)
+
+  
 
 var questions = [
   {
