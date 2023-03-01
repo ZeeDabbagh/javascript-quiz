@@ -1,4 +1,5 @@
 
+// generate scores
 data = JSON.parse(localStorage.getItem("data"));
 for (var i = 0; i < data.length; i++) {
     var scoresEl = document.querySelector("#scores");
@@ -8,13 +9,13 @@ for (var i = 0; i < data.length; i++) {
 };
 
 // Go back to start
-var goBack = document.querySelector("#go-back");
+var goBack = document.querySelector("#restart");
 goBack.addEventListener("click", function() {
-  window.location.replace("index.html")
+  window.location.replace("./index.html")
 })
 
 // Clear scores
-var clearScores = document.querySelector("#hs-btn");
+var clearScores = document.querySelector("#clear-hs");
 function clear() {
     var oneScoreEl = document.querySelectorAll("p");
     for (var j = 0; j < oneScoreEl.length; j++) {

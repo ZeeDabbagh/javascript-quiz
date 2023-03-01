@@ -1,6 +1,7 @@
 * {
     box-sizing: border-box;
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    
 }
 
 :root {
@@ -18,26 +19,11 @@ body {
     align-items: center;
 }
 
-#assessment {
-    color: lightslategray;
-    font-style: italic;
-}
-
 .container {
     width: 800px;
     max-width: 80%;
     padding: 50px;
 
-}
-
-#hide {
-    display: none;
-}
-
-#answer-container {
-    display: grid;
-    gap: 10px;
-    margin: 20px 5px;
 }
 
 .answer-btn {
@@ -94,65 +80,35 @@ body {
     color: var(--purple);
 }
 
-#form {
-    display: inline;
-}
-
 .highscores-page button{
     width: 800px;
     max-width: 80%;
     padding: 50px;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* :root {
-    --purple: #791f87;
+#assessment {
+    color: lightslategray;
+    font-style: italic;
 }
 
-.custom-btn {
-    background-color: var(--purple);
-    color: white;
-}
-
-.timer {
-    position: absolute; 
-    top: 0px; 
-    right: 10px;
-}
-
-.hide {
+#hide {
     display: none;
-} */
+}
+
+#answer-container {
+    display: grid;
+    gap: 10px;
+    margin: 20px 5px;
+}
+
+
+
+#form {
+    display: inline;
+}
+
+
+
+#scores {
+    background-color: var(--light-purple);
+}
